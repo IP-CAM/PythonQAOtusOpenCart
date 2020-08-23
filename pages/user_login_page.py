@@ -4,9 +4,9 @@ from selenium.webdriver.common.by import By
 from .base_page import BasePage
 
 
-class LoginPage(BasePage):
+class UserLoginPage(BasePage):
 
-    """ OpenCart account login page """
+    """ OpenCart user login page """
 
     DIV_ACCOUNT_LOGIN = (By.ID, "account-login")
     INPUT_LOGIN_BUTTON = (By.CSS_SELECTOR, "input.btn.btn-primary")
