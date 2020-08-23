@@ -1,0 +1,4 @@
+allure-pytest==2.8.18
+beautifulsoup4==4.9.1
+pytest==6.0.1
+selenium==3.141.0
