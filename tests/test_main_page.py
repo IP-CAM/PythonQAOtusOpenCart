@@ -31,6 +31,8 @@ class TestMainPage:
             assert main_page.find_element(locator=main_page.A_LOGIN)
     #
 
+    @allure.title("Check product added to cart")
+    @allure.story("Main page")
     def test_product_added_to_cart(self, main_page):
         with allure.step("Check cart is empty"):
             assert main_page.is_cart_empty()
