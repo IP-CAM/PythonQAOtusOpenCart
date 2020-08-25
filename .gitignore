@@ -1,5 +1,7 @@
+# PyCharm
 .idea
-files/
+
+# Allure reports folder
 allure*/
 
 # Byte-compiled / optimized / DLL files
