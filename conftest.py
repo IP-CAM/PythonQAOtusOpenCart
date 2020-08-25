@@ -27,7 +27,19 @@ def page_logging(request) -> bool:
 
 
 @pytest.fixture(scope="function")
-def browser(request: FixtureRequest) -> webdriver:
+def selenoid_logging(request) -> bool:
+    """
+    Parse "--selenoid_logging" tag from command line to log
+    actions in selenoid containers
+    """
+    if request.config.getoption(name="--selenoid-logging"):
+        return True
+    return False
+#
+
+
+@pytest.fixture(scope="function")
+def browser(request: FixtureRequest, selenoid_logging: bool) -> webdriver:
     """
     Launch browser in Selenoid
     """
@@ -39,6 +51,7 @@ def browser(request: FixtureRequest) -> webdriver:
         "browserName": browser_name,
         "name": request.node.name,  # test name
         "version": browser_version,
+        "enableLog": selenoid_logging,
         "enableVNC": True,
         "enableVideo": True
     }
@@ -99,5 +112,10 @@ def pytest_addoption(parser: Parser):
         "--page_logging",
         action="store_true",
         help="Log actions on pages"
+    )
+    parser.addoption(
+        "--selenoid-logging",
+        action="store_true",
+        help="Enable logging in selenoid"
     )
 #
