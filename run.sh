@@ -2,10 +2,10 @@
 
 rm -rf allure-*
 
-if [! -z "$(ls -A ~/.aerokube/selenoid/logs)"]; then
+if [[ ! -z "$(ls -A ~/.aerokube/selenoid/logs)" ]]; then
     sudo rm ~/.aerokube/selenoid/logs/*
 fi
-if [! -z "$(ls -A ~/.aerokube/selenoid/video)"]; then
+if [[ ! -z "$(ls -A ~/.aerokube/selenoid/video)" ]]; then
     sudo rm ~/.aerokube/selenoid/video/*
 fi
 
